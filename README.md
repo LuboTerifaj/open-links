@@ -17,6 +17,12 @@ Edit `URLs.txt` file with desired links separated by new line, or update `FILE_P
 If you want to use a specific browser, set the `PREFFERED_BROWSER` constant in `open-links-in-browser.sh` script.
 If you want to use your default browser, don't change anything.
 
+#### Note
+If you make any changes in `constants.sh`, always run the installation script.
+If you make any changes in `open-links-in-browser.sh`, it is necessary to run `.bashrc` script or open a new terminal.
+
+See the next point for more information.
+
 ### Install
 
 Make the installation script executable and run it:
@@ -28,9 +34,12 @@ Read and execute `.bashrc` script, or close and open a new terminal.
 
 Be aware that if you change the scripts location, you will need to also update .bashrc file.
 
-### Use
+### Use it
 
-From now on you can use your alias (default value is `lunch`) in terminal to open links from a file.
+From now on you can use your alias (default value is `lunch`) in terminal to open links from a predefined file.
+
+If you want to use a specific file only once, you can also use `open_links` function with parameter containing a path to the file:
+- e.g.: `open_links $HOME/file_with_urls.txt`
 
 ### Uninstall
 

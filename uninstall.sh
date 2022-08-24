@@ -2,13 +2,6 @@
 
 source constants.sh
 
-echo "Removing scripts and aliases from .bashrc file"
-
-sed -i "/# Open links/d" $HOME/.bashrc
-sed -i "\|$SOURCE_SCRIPT|d" $HOME/.bashrc
-sed -i "\|alias $ALIAS='$FUNCTION_NAME $FILE_PATH'|d" $HOME/.bashrc
-
-# Remove empty lines at the end of file
-sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' $HOME/.bashrc
+__remove_previously_added_lines
 
 echo "Done"
