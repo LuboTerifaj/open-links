@@ -2,7 +2,7 @@
 #
 # Makes open-links-in-browser.sh executable
 # Makes uninstall.sh executable
-# Adds scripts and alieases to .bashrc file
+# Adds scripts and aliases to .bashrc file
 
 source constants.sh
 
@@ -21,9 +21,9 @@ fi
 
 if [[ `cat $HOME/.bashrc | grep "$ALIAS"` = "" ]]; then
     echo "Adding alias to .bashrc file"
-    echo "alias $ALIAS='$FUNCTION_NAME'" >> $HOME/.bashrc
+    echo "alias $ALIAS='$FUNCTION_NAME $FILE_PATH'" >> $HOME/.bashrc
 else
-    echo "alias \"$ALIAS\" is already added to .bashrc file"    
+    echo "alias \"$ALIAS\" is already added to .bashrc file"
 fi
 
 echo "Done"

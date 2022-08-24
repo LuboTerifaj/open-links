@@ -1,13 +1,27 @@
 # The script for opening links from a file in a browser
 
-source constants.sh
+###########
+# Constants
+###########
+
+CHROME="google-chrome.desktop"
+FIREFOX="firefox.desktop"
+
+# Comment out the following line and uncomment the preffered browser to open URLs in it. The preffered browser takes precedence over a default browser.
+PREFFERED_BROWSER=""
+# PREFFERED_BROWSER=$CHROME
+# PREFFERED_BROWSER=$FIREFOX
 
 DEFAULT_BROWSER=`xdg-mime query default x-scheme-handler/http`
+
+###########
+# Functions
+###########
 
 __open_in_chrome() {       
     while read line; do       
             google-chrome --incognito $line 1>/dev/null 2>/dev/null    
-    done <$FILE_NAME    
+    done <$filePath
 }
 
 __open_in_firefox() {       
@@ -15,11 +29,11 @@ __open_in_firefox() {
     while read line; do       
             firefox --private-window $line 1>/dev/null 2>/dev/null
             if [[ $i -eq 0 ]]; then
-                sleep 1 # Workaround the bug on Firefox
+                sleep 1 # Workaround for the bug in Firefox
                 # echo "sleep for 1 sec"
             fi
             i=$((i+1))            
-    done <$FILE_NAME    
+    done <$filePath
 }
 
 __open_in_default_browser() {
@@ -34,7 +48,17 @@ __open_in_default_browser() {
     fi
 }
 
+# Opens URLs from a file in a browser
+#
+# An argument is required: path to the file.
+# The expected format of the file: URLs separated by new lines
 open_links() {
+    if [[ -z $1 ]]; then
+      echo "The argument is missing: The path to the file with URLs"
+      return 1
+    fi
+    filePath=$1
+
     if [[ $PREFFERED_BROWSER = $CHROME ]]; then
         __open_in_chrome
     elif [[ $PREFFERED_BROWSER = $FIREFOX ]]; then
@@ -43,6 +67,3 @@ open_links() {
         __open_in_default_browser
     fi
 }
-
-
-
