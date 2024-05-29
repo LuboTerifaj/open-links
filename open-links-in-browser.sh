@@ -5,7 +5,7 @@
 ###########
 
 CHROME="google-chrome.desktop"
-FIREFOX="firefox.desktop"
+FIREFOX="org.mozilla.firefox.desktop"
 
 # Comment out the following line and uncomment the preferred browser to open URLs in it. The preferred browser takes precedence over a default browser.
 PREFERRED_BROWSER=""
