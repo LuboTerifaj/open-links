@@ -7,10 +7,10 @@
 CHROME="google-chrome.desktop"
 FIREFOX="firefox.desktop"
 
-# Comment out the following line and uncomment the preffered browser to open URLs in it. The preffered browser takes precedence over a default browser.
-PREFFERED_BROWSER=""
-# PREFFERED_BROWSER=$CHROME
-# PREFFERED_BROWSER=$FIREFOX
+# Comment out the following line and uncomment the preferred browser to open URLs in it. The preferred browser takes precedence over a default browser.
+PREFERRED_BROWSER=""
+# PREFERRED_BROWSER=$CHROME
+# PREFERRED_BROWSER=$FIREFOX
 
 DEFAULT_BROWSER=`xdg-mime query default x-scheme-handler/http`
 
@@ -59,9 +59,9 @@ open_links() {
     fi
     filePath=$1
 
-    if [[ $PREFFERED_BROWSER = $CHROME ]]; then
+    if [[ $PREFERRED_BROWSER = $CHROME ]]; then
         __open_in_chrome
-    elif [[ $PREFFERED_BROWSER = $FIREFOX ]]; then
+    elif [[ $PREFERRED_BROWSER = $FIREFOX ]]; then
         __open_in_firefox
     else
         __open_in_default_browser

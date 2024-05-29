@@ -27,7 +27,7 @@ Edit `URLs.txt` file with desired links separated by new line, or update `FILE_P
 
 If you want to use your **default browser**, you don't need to change anything.
 
-If you want to use a **specific browser**, set the `PREFFERED_BROWSER` constant in `open-links-in-browser.sh` script.
+If you want to use a **specific browser**, set the `PREFERRED_BROWSER` constant in `open-links-in-browser.sh` script.
 
 #### Note
 If you make any changes in `constants.sh`, always run the `install.sh` and `.bashrc` scripts.
@@ -56,7 +56,7 @@ If you want to use a specific file only once, you can also use `open_links` func
 
 ### Uninstall
 
-If you don't want to use the script any more, execute `uninstall.sh` script:
+If you don't want to use the script anymore, execute `uninstall.sh` script:
 - `./uninstall.sh`
 
 You can now delete the project.
